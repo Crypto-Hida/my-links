@@ -1,140 +1,251 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2775.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5Q96KF8Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'GTM-5Q96KF8Z');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クリプトHida / 緋朶 - Links</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #f5f5f5;
+            --primary-btn: #ffffff;
+            --primary-btn-text: #000000;
+            --secondary-btn: #2a2a2a;
+            --secondary-btn-hover: #3a3a3a;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .profile-container {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+        }
+        .profile-name {
+            font-size: 1.5rem;
+            margin: 0 0 8px 0;
+            font-weight: bold;
+        }
+        .profile-bio {
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            margin: 0;
+            line-height: 1.5;
+        }
+        /* ミニギャラリー用のCSS */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 24px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .gallery-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        /* リンクボタン用のCSS */
+        .links-container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .link-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.2s, background-color 0.2s;
+            box-sizing: border-box;
+        }
+        .link-btn:active {
+            transform: scale(0.98);
+        }
+        .primary {
+            background-color: var(--primary-btn);
+            color: var(--primary-btn-text);
+        }
+        .secondary {
+            background-color: var(--secondary-btn);
+            color: var(--text-color);
+        }
+        .secondary:hover {
+            background-color: var(--secondary-btn-hover);
+        }
+        
+        /* About Me & History用のCSS */
+        .section-title {
+            width: 100%;
+            max-width: 400px;
+            font-size: 1.2rem;
+            margin: 48px 0 16px 0;
+            border-bottom: 1px solid var(--secondary-btn);
+            padding-bottom: 8px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .profile-text {
+            width: 100%;
+            max-width: 400px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cccccc;
+            margin-bottom: 32px;
+        }
+        .timeline {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 40px 0;
+            width: 100%;
+            max-width: 400px;
+            border-left: 2px solid var(--secondary-btn);
+        }
+        .timeline li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 24px;
+        }
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background-color: #888888;
+            border-radius: 50%;
+        }
+        .timeline-date {
+            font-size: 0.85rem;
+            color: #aaaaaa;
+            margin-bottom: 4px;
+            font-family: monospace;
+        }
+        .timeline-content {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #eeeeee;
+        }
+        
+        /* フッター（コピーライト）用のCSS */
+        .footer {
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: #666666;
+            text-align: center;
+            width: 100%;
+            padding-bottom: 24px;
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="ja"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Google tag (gtag.js) --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5Q96KF8Z"&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>window.dataLayer = window.dataLayer || [];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>function gtag(){dataLayer.push(arguments);}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gtag('js', new Date());</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gtag('config', 'GTM-5Q96KF8Z');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;クリプトHida / 緋朶 - Links&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>:root {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--bg-color: #121212;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--text-color: #f5f5f5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--primary-btn: #ffffff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--primary-btn-text: #000000;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--secondary-btn: #2a2a2a;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--secondary-btn-hover: #3a3a3a;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: var(--bg-color);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--text-color);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Helvetica Neue', Arial, sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 40px 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.profile-container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 32px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.profile-img {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 50%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>object-fit: cover;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.profile-name {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 0 8px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.profile-bio {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #aaaaaa;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 1.5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.links-container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 400px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.link-btn {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: transform 0.2s, background-color 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.link-btn:active {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: scale(0.98);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.primary {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: var(--primary-btn);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--primary-btn-text);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.secondary {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: var(--secondary-btn);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--text-color);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.secondary:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: var(--secondary-btn-hover);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="profile-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- プロフィール画像 --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;img src="profile.jpg" alt="Profile" class="profile-img"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- 名前 --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1 class="profile-name"&gt;クリプトHida / 緋朶&lt;/h1&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- 自己紹介 --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="profile-bio"&gt;Photographer&lt;br&gt;EOS R3 / EOS-1D X Mark II&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="links-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="https://instagram.com/crypto_hida_photo" class="link-btn primary"&gt;Instagram(Photography Portfolio)&lt;/a&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="https://instagram.com/crypto_hida" class="link-btn secondary"&gt;Instagram(Daily Life &amp; Thoughts)&lt;/a&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="https://x.com/CryptoHida" class="link-btn secondary"&gt;X (Twitter)&lt;/a&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="https://note.com/crypto_hida" class="link-btn secondary"&gt;note&lt;/a&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="https://crypto-hida.hatenablog.com" class="link-btn secondary"&gt;Blog / HOTEI Model guitar research&lt;/a&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="https://youtube.com/@Crypto_Hida_guitar" class="link-btn secondary"&gt;YouTube(Main)&lt;/a&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="https://youtube.com/@Crypto_Hida" class="link-btn secondary"&gt;YouTube(Sub)&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+    <div class="profile-container">
+        <!-- プロフィール画像 -->
+        <img src="profile.jpg" alt="Profile" class="profile-img">
+        
+        <!-- 名前 -->
+        <h1 class="profile-name">クリプトHida / 緋朶</h1>
+        
+        <!-- 自己紹介 -->
+        <p class="profile-bio">Photographer / Multi-creator<br>EOS R3 / EOS-1D X Mark II</p>
+    </div>
+
+    <!-- 厳選作例3枚のミニギャラリー -->
+    <div class="gallery-container">
+        <img src="A75I4454_2.jpg" alt="Portfolio 1 - Ginyanma" class="gallery-img">
+        <img src="A75I4007_2.jpg" alt="Portfolio 2 - Hagurotonbo" class="gallery-img">
+        <img src="139A0465_Shashincho_2.JPG" alt="Portfolio 3 - Tentoumushi" class="gallery-img">
+    </div>
+
+    <div class="links-container">
+        <a href="https://instagram.com/crypto_hida_photo" class="link-btn primary">Instagram (Photography Portfolio)</a>
+        <a href="https://instagram.com/crypto_hida" class="link-btn secondary">Instagram (Daily)</a>
+        <a href="https://x.com/CryptoHida" class="link-btn secondary">X (Daily Life & Thoughts)</a>
+        <a href="https://note.com/crypto_hida" class="link-btn secondary">note</a>
+        <a href="https://crypto-hida.hatenablog.com" class="link-btn secondary">Blog (HOTEI Model guitar research)</a>
+        <a href="https://youtube.com/@Crypto_Hida_guitar" class="link-btn secondary">YouTube(Main)</a>
+        <a href="https://youtube.com/@Crypto_Hida" class="link-btn secondary">YouTube(Sub)</a>
+    </div>
+
+    <!-- プロフィール詳細と実績年表 -->
+    <h2 class="section-title">About Me</h2>
+    <div class="profile-text">
+        視覚芸術のルーツと、幼少期の工作で培った「空間構築力」を自分の表現に転用。動体撮影からプロダクトデザイン・制作まで、物質と光を横断するマルチクリエイター。
+    </div>
+
+    <h2 class="section-title">History</h2>
+    <ul class="timeline">
+        <li>
+            <div class="timeline-date">2026.10</div>
+            <div class="timeline-content">「UNIDOL 2026 Fresh in KANTO」公式カメラマンとして参加。</div>
+        </li>
+        <li>
+            <div class="timeline-date">2026.09</div>
+            <div class="timeline-content">「Trope "Anthracite”」製品撮影を担当。</div>
+        </li>
+        <li>
+            <div class="timeline-date">2026.09</div>
+            <div class="timeline-content">学生ギタリスト5人による布袋寅泰トリビュートメドレーMVを制作。セトリ考案、オケ音源作成、MIXマスタリング、動画編集を担当。</div>
+        </li>
+        <li>
+            <div class="timeline-date">2025.11</div>
+            <div class="timeline-content">大学内の所属軽音サークルにてPA長に就任。（〜2026.11）</div>
+        </li>
+        <li>
+            <div class="timeline-date">2025.01</div>
+            <div class="timeline-content">YouTubeチャンネル登録者数 2000人を突破。</div>
+        </li>
+        <li>
+            <div class="timeline-date">2024.12</div>
+            <div class="timeline-content">「おひさま音楽部」に楽曲制作・プロジェクト運営メンバーとして参加。作編曲・MIXマスタリング等のオーディオエンジニアリングを担当。</div>
+        </li>
+        <li>
+            <div class="timeline-date">2023.07</div>
+            <div class="timeline-content">YouTubeチャンネル登録者数 1000人を突破。</div>
+        </li>
+        <li>
+            <div class="timeline-date">2022.04</div>
+            <div class="timeline-content">ギター演奏投稿を主目的としたYouTubeチャンネルを開設。「クリプトHida」誕生。</div>
+        </li>
+    </ul>
+
+    <!-- コピーライト -->
+    <footer class="footer">
+        &copy; 2026 クリプトHida
+    </footer>
+
 </body>
 </html>
