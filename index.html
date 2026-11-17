@@ -23,6 +23,12 @@
             --secondary-btn: #2a2a2a;
             --secondary-btn-hover: #3a3a3a;
         }
+        
+        /* スマホのスクロール時の白い余白（バウンド）対策 */
+        html {
+            background-color: var(--bg-color);
+        }
+
         body {
             background-color: transparent; /* 背景スライドショーを表示するために透明化 */
             color: var(--text-color);
@@ -34,7 +40,7 @@
             padding: 40px 20px;
         }
 
-        /* --- ここから：背景スライドショー用のCSS（5枚用） --- */
+        /* --- ここから：背景スライドショー用のCSS（5枚用・40秒周期） --- */
         .bg-slideshow {
             position: fixed;
             top: 0;
@@ -42,7 +48,7 @@
             width: 100vw;
             height: 100vh;
             z-index: -1;
-            background-color: var(--bg-color); /* 画像読み込み前のベース色 */
+            background-color: var(--bg-color); 
         }
         .bg-slideshow img {
             position: absolute;
@@ -54,7 +60,7 @@
             opacity: 0;
             animation: crossfade 40s infinite;
         }
-        /* 5枚の画像の出現タイミングを5秒ずつずらす */
+        /* 5枚の画像の出現タイミングを8秒ずつずらす */
         .bg-slideshow img:nth-child(1) { animation-delay: 0s; }
         .bg-slideshow img:nth-child(2) { animation-delay: 8s; }
         .bg-slideshow img:nth-child(3) { animation-delay: 16s; }
@@ -68,7 +74,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(18, 18, 18, 0.85); /* 濃度の調整はここの数値を変更 */
+            background-color: rgba(18, 18, 18, 0.85); 
         }
 
         @keyframes crossfade {
@@ -136,7 +142,7 @@
             font-size: 1rem;
             transition: transform 0.2s, background-color 0.2s;
             box-sizing: border-box;
-            backdrop-filter: blur(4px); /* 背景が透けるためボタンにもすりガラス効果を追加 */
+            backdrop-filter: blur(4px); 
         }
         .link-btn:active {
             transform: scale(0.98);
@@ -146,7 +152,7 @@
             color: var(--primary-btn-text);
         }
         .secondary {
-            background-color: rgba(42, 42, 42, 0.7); /* ボタン自体も少しだけ透けさせる */
+            background-color: rgba(42, 42, 42, 0.7); 
             color: var(--text-color);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
