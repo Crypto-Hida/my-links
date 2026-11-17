@@ -24,7 +24,7 @@
             --secondary-btn-hover: #3a3a3a;
         }
         body {
-            background-color: var(--bg-color);
+            background-color: transparent; /* 背景スライドショーを表示するために透明化 */
             color: var(--text-color);
             font-family: 'Helvetica Neue', Arial, sans-serif;
             display: flex;
@@ -33,6 +33,53 @@
             margin: 0;
             padding: 40px 20px;
         }
+
+        /* --- ここから：背景スライドショー用のCSS（5枚用） --- */
+        .bg-slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background-color: var(--bg-color); /* 画像読み込み前のベース色 */
+        }
+        .bg-slideshow img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: crossfade 25s infinite;
+        }
+        /* 5枚の画像の出現タイミングを5秒ずつずらす */
+        .bg-slideshow img:nth-child(1) { animation-delay: 0s; }
+        .bg-slideshow img:nth-child(2) { animation-delay: 5s; }
+        .bg-slideshow img:nth-child(3) { animation-delay: 10s; }
+        .bg-slideshow img:nth-child(4) { animation-delay: 15s; }
+        .bg-slideshow img:nth-child(5) { animation-delay: 20s; }
+
+        /* 文字を読ませるための黒い半透明フィルター */
+        .bg-slideshow .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(18, 18, 18, 0.85); /* 濃度の調整はここの数値を変更 */
+        }
+
+        @keyframes crossfade {
+            0% { opacity: 0; }
+            8% { opacity: 1; }
+            20% { opacity: 1; }
+            28% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        /* --- ここまで：背景スライドショー用のCSS --- */
+
         .profile-container {
             text-align: center;
             margin-bottom: 32px;
@@ -89,6 +136,7 @@
             font-size: 1rem;
             transition: transform 0.2s, background-color 0.2s;
             box-sizing: border-box;
+            backdrop-filter: blur(4px); /* 背景が透けるためボタンにもすりガラス効果を追加 */
         }
         .link-btn:active {
             transform: scale(0.98);
@@ -98,11 +146,12 @@
             color: var(--primary-btn-text);
         }
         .secondary {
-            background-color: var(--secondary-btn);
+            background-color: rgba(42, 42, 42, 0.7); /* ボタン自体も少しだけ透けさせる */
             color: var(--text-color);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .secondary:hover {
-            background-color: var(--secondary-btn-hover);
+            background-color: rgba(58, 58, 58, 0.9);
         }
         
         /* About Me & History用のCSS */
@@ -171,6 +220,16 @@
     </style>
 </head>
 <body>
+
+    <!-- 背景スライドショー（5枚） -->
+    <div class="bg-slideshow">
+        <img src="bg1.jpg" alt="Background 1">
+        <img src="bg2.jpg" alt="Background 2">
+        <img src="bg3.jpg" alt="Background 3">
+        <img src="bg4.jpg" alt="Background 4">
+        <img src="bg5.jpg" alt="Background 5">
+        <div class="overlay"></div>
+    </div>
 
     <div class="profile-container">
         <!-- プロフィール画像 -->
