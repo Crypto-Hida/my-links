@@ -316,6 +316,26 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* --- ロード時アニメーション（ファーストビュー用） --- */
+        .load-fade-in {
+            opacity: 0;
+            animation: loadFadeIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+        }
+        .delay-1 { animation-delay: 0s; }
+        .delay-2 { animation-delay: 0.15s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        @keyframes loadFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -329,21 +349,21 @@
         <div class="overlay"></div>
     </div>
 
-    <div class="profile-container">
+    <div class="profile-container load-fade-in delay-1">
         <!-- プロフィール画像（Lazy Load） -->
         <img src="profile.jpg" alt="Profile" class="profile-img" loading="lazy">
         <h1 class="profile-name">クリプトHida / 緋朶</h1>
         <p class="profile-bio">Photographer / Multi-creator<br>EOS R3 / EOS-1D X Mark II</p>
     </div>
 
-    <div class="gallery-container">
+    <div class="gallery-container load-fade-in delay-2">
         <!-- ギャラリー画像（Lightbox対象・Lazy Load） -->
         <img src="A75I4454_2.JPG" alt="Portfolio 1 - Ginyanma" class="gallery-img" loading="lazy">
         <img src="A75I4007_2.JPG" alt="Portfolio 2 - Hagurotonbo" class="gallery-img" loading="lazy">
         <img src="139A0465_Shashincho_2.JPG" alt="Portfolio 3 - Tentoumushi" class="gallery-img" loading="lazy">
     </div>
 
-    <div class="links-container">
+    <div class="links-container load-fade-in delay-3">
         <a href="https://instagram.com/crypto_hida_photo" class="link-btn primary">
             <i class="fa-brands fa-instagram"></i>Instagram (Photography Portfolio)
         </a>
