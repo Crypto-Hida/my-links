@@ -41,7 +41,7 @@
             align-items: center;
             margin: 0;
             padding: 40px 20px;
-            -webkit-tap-highlight-color: transparent; /* スマホタップ時のグレー枠を消去 */
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* --- 背景スライドショー --- */
@@ -111,7 +111,7 @@
             line-height: 1.5;
         }
 
-        /* --- ミニギャラリー（マイクロインタラクション追加） --- */
+        /* --- ミニギャラリー --- */
         .gallery-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -128,7 +128,6 @@
             transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
             cursor: pointer;
         }
-        /* 画像に触れた際、少し浮き上がって影が出る */
         .gallery-img:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(0,0,0,0.8);
@@ -136,7 +135,7 @@
             position: relative;
         }
 
-        /* --- リンクボタン（アイコン・マイクロインタラクション追加） --- */
+        /* --- リンクボタン --- */
         .links-container {
             width: 100%;
             max-width: 400px;
@@ -148,7 +147,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px; /* アイコンと文字の間隔 */
+            gap: 12px;
             width: 100%;
             padding: 16px;
             text-align: center;
@@ -161,14 +160,12 @@
             backdrop-filter: blur(4px); 
         }
         .link-btn i {
-            font-size: 1.2rem; /* アイコンのサイズ */
+            font-size: 1.2rem;
         }
-        /* ボタンに触れた際、上へ少し浮き上がる */
         .link-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 16px rgba(0,0,0,0.6);
         }
-        /* ボタンを押し込んだ際の沈み込み */
         .link-btn:active {
             transform: translateY(0) scale(0.98);
             box-shadow: 0 2px 4px rgba(0,0,0,0.6);
@@ -250,6 +247,17 @@
             width: 100%;
             padding-bottom: 24px;
         }
+
+        /* --- スクロールアニメーション（フェードイン） --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -299,50 +307,75 @@
         </a>
     </div>
 
-    <h2 class="section-title">About Me</h2>
-    <div class="profile-text">
+    <h2 class="section-title fade-in">About Me</h2>
+    <div class="profile-text fade-in">
         視覚芸術のルーツと、幼少期の工作で培った「空間構築力」を自分の表現に転用。動体撮影からプロダクトデザイン・制作まで、物質と光を横断するマルチクリエイター。
     </div>
 
-    <h2 class="section-title">History</h2>
+    <h2 class="section-title fade-in">History</h2>
     <ul class="timeline">
-        <li>
+        <li class="fade-in">
             <div class="timeline-date">2026.10</div>
             <div class="timeline-content">「UNIDOL 2026 Fresh in KANTO」公式カメラマンとして参加。</div>
         </li>
-        <li>
+        <li class="fade-in">
             <div class="timeline-date">2026.09</div>
             <div class="timeline-content">「Trope "Anthracite”」製品撮影を担当。</div>
         </li>
-        <li>
+        <li class="fade-in">
             <div class="timeline-date">2026.09</div>
             <div class="timeline-content">学生ギタリスト5人による布袋寅泰トリビュートメドレーMVを制作。全体的なプロジェクト進行、セトリ考案、オケ音源作成、MIXマスタリング、動画編集を担当。</div>
         </li>
-        <li>
+        <li class="fade-in">
             <div class="timeline-date">2025.11</div>
             <div class="timeline-content">大学内の所属軽音サークルにてPA長に就任。学園祭時は所属サークルだけでなく他サークルもまとめてPAの統括を行う。（〜2026.11）</div>
         </li>
-        <li>
+        <li class="fade-in">
             <div class="timeline-date">2025.01</div>
             <div class="timeline-content">YouTubeチャンネル登録者数 2000人を突破。</div>
         </li>
-        <li>
+        <li class="fade-in">
             <div class="timeline-date">2024.12</div>
             <div class="timeline-content">「おひさま音楽部」に楽曲制作・プロジェクト運営メンバーとして参加。作編曲・MIXマスタリング等のオーディオエンジニアリングを担当。</div>
         </li>
-        <li>
+        <li class="fade-in">
             <div class="timeline-date">2023.07</div>
             <div class="timeline-content">YouTubeチャンネル登録者数 1000人を突破。</div>
         </li>
-        <li>
+        <li class="fade-in">
             <div class="timeline-date">2022.04</div>
             <div class="timeline-content">ギター演奏投稿を主目的としたYouTubeチャンネルを開設。「クリプトHida」誕生。</div>
         </li>
     </ul>
 
-    <footer class="footer">
+    <footer class="footer fade-in">
         &copy; 2026 クリプトHida
     </footer>
 
+    <!-- スクロール検知用のJavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -30px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
 </body>
 </html>
