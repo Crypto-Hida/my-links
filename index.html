@@ -14,8 +14,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>クリプトHida / 緋朶 - Links</title>
+
+    <!-- OGP（SNSシェア時のサムネイル・タイトル設定） -->
+    <meta property="og:title" content="クリプトHida / 緋朶 - Links">
+    <meta property="og:description" content="Photographer / Multi-creator. 物質と光を横断するマルチクリエイターのポートフォリオ・リンク集。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://crypto-hida-links.vercel.app/">
+    <meta property="og:image" content="https://crypto-hida-links.vercel.app/ogp.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="クリプトHida / 緋朶 - Links">
+    <meta name="twitter:description" content="Photographer / Multi-creator.">
+    <meta name="twitter:image" content="https://crypto-hida-links.vercel.app/ogp.jpg">
     
-    <!-- アイコンフォント（FontAwesome）の読み込み -->
+    <!-- アイコンフォント（FontAwesome） -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -133,6 +144,53 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.8);
             z-index: 2;
             position: relative;
+        }
+
+        /* --- Lightbox（拡大表示）用CSS --- */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+            backdrop-filter: blur(10px);
+        }
+        .lightbox img {
+            max-width: 95%;
+            max-height: 85vh;
+            object-fit: contain;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            transform: scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .lightbox.active img {
+            transform: scale(1);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            color: #ffffff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1001;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .lightbox-close:hover {
+            opacity: 1;
         }
 
         /* --- リンクボタン --- */
@@ -264,7 +322,7 @@
 
     <div class="bg-slideshow">
         <img src="bg1.jpg" alt="Background 1">
-        <img src="bg2.JPG" alt="Background 2">
+        <img src="bg2.jpg" alt="Background 2">
         <img src="bg3.jpg" alt="Background 3">
         <img src="bg4.jpg" alt="Background 4">
         <img src="bg5.jpg" alt="Background 5">
@@ -272,15 +330,17 @@
     </div>
 
     <div class="profile-container">
-        <img src="profile.jpg" alt="Profile" class="profile-img">
+        <!-- プロフィール画像（Lazy Load） -->
+        <img src="profile.jpg" alt="Profile" class="profile-img" loading="lazy">
         <h1 class="profile-name">クリプトHida / 緋朶</h1>
         <p class="profile-bio">Photographer / Multi-creator<br>EOS R3 / EOS-1D X Mark II</p>
     </div>
 
     <div class="gallery-container">
-        <img src="A75I4454_2.JPG" alt="Portfolio 1 - Ginyanma" class="gallery-img">
-        <img src="A75I4007_2.JPG" alt="Portfolio 2 - Hagurotonbo" class="gallery-img">
-        <img src="139A0465_Shashincho_2.JPG" alt="Portfolio 3 - Tentoumushi" class="gallery-img">
+        <!-- ギャラリー画像（Lightbox対象・Lazy Load） -->
+        <img src="A75I4454_2.JPG" alt="Portfolio 1 - Ginyanma" class="gallery-img" loading="lazy">
+        <img src="A75I4007_2.JPG" alt="Portfolio 2 - Hagurotonbo" class="gallery-img" loading="lazy">
+        <img src="139A0465_Shashincho_2.JPG" alt="Portfolio 3 - Tentoumushi" class="gallery-img" loading="lazy">
     </div>
 
     <div class="links-container">
@@ -352,9 +412,16 @@
         &copy; 2026 クリプトHida
     </footer>
 
-    <!-- スクロール検知用のJavaScript -->
+    <!-- Lightbox（拡大表示）用モーダル要素 -->
+    <div id="lightbox" class="lightbox">
+        <i class="fa-solid fa-xmark lightbox-close"></i>
+        <img id="lightbox-img" src="" alt="Enlarged Image">
+    </div>
+
+    <!-- JavaScript領域（スクロール検知 ＆ Lightbox制御） -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // 1. スクロール検知によるフェードイン処理
             const faders = document.querySelectorAll('.fade-in');
             const appearOptions = {
                 threshold: 0.1,
@@ -374,6 +441,24 @@
 
             faders.forEach(fader => {
                 appearOnScroll.observe(fader);
+            });
+
+            // 2. Lightbox（拡大表示）の制御処理
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const galleryImgs = document.querySelectorAll('.gallery-img');
+
+            // ギャラリー画像がタップされた時、モーダルを開く
+            galleryImgs.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src; // タップした画像のURLをモーダルに渡す
+                    lightbox.classList.add('active'); // モーダルを表示
+                });
+            });
+
+            // モーダル領域（または×ボタン）がタップされた時、閉じる
+            lightbox.addEventListener('click', () => {
+                lightbox.classList.remove('active');
             });
         });
     </script>
