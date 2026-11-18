@@ -296,17 +296,49 @@
             color: #eeeeee;
         }
 
-        /* --- ガイドライン（料金表） --- */
-        .guideline-container {
+        /* --- 折りたたみ式ガイドライン（アコーディオン） --- */
+        details.guideline-accordion {
             width: 100%;
             max-width: 400px;
             background-color: rgba(42, 42, 42, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            padding: 24px;
-            box-sizing: border-box;
-            margin-bottom: 40px;
+            margin-bottom: 16px;
             backdrop-filter: blur(4px);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        details.guideline-accordion summary {
+            padding: 18px 20px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #ffffff;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+        details.guideline-accordion summary:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        details.guideline-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+        details.guideline-accordion summary::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: #aaaaaa;
+            line-height: 1;
+        }
+        details.guideline-accordion[open] summary::after {
+            content: '−';
+            color: #ffffff;
+        }
+        .accordion-content {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
         .guideline-block {
             margin-bottom: 24px;
@@ -353,6 +385,15 @@
         .guideline-block .note {
             font-size: 0.8rem;
             color: #999999;
+        }
+        .contact-note {
+            width: 100%;
+            max-width: 400px;
+            font-size: 0.85rem;
+            color: #aaaaaa;
+            text-align: center;
+            margin: 8px 0 32px 0;
+            line-height: 1.5;
         }
         
         /* --- フッター --- */
@@ -487,68 +528,79 @@
         </li>
     </ul>
 
-    <!-- 撮影依頼 料金ガイドライン -->
-    <h2 class="section-title fade-in">Shooting Guidelines</h2>
-    <div class="guideline-container fade-in">
-        <div class="guideline-block">
-            <h3 class="guideline-heading">1案件目安</h3>
-            <p class="price-highlight">¥15,000〜 <span>＋ 交通費</span></p>
-            <p class="note">※拘束時間や納品枚数等によって変動</p>
-        </div>
-        
-        <div class="guideline-block">
-            <h3 class="guideline-heading">料金の算出基準（お見積もりについて）</h3>
-            <p>基本価格は、以下の計算式に基づき、総拘束時間に応じて算出いたします。</p>
-            <ul class="guideline-list">
-                <li>基本価格 ＝ (総拘束時間 × 時間単価) ＋ 機材維持費 ＋ 交通費(実費)</li>
-                <li>総拘束時間 ＝ 移動時間 ＋ 撮影時間 ＋ 選定・現像時間</li>
-            </ul>
-        </div>
-        
-        <div class="guideline-block">
-            <h3 class="guideline-heading">納品写真のご利用について（完全フリーライセンス）</h3>
-            <p>追加料金なしで商用利用も可能です。</p>
-            <p class="note">※可能な範囲でクレジット表記(『Photo by @アカウント名』など)にご協力いただけますと幸いです。</p>
-        </div>
-        
-        <div class="guideline-block">
-            <h3 class="guideline-heading">納品期限オプション</h3>
-            <ul class="guideline-list">
-                <li><strong>通常納品：</strong> 撮影から1週間程度（20枚以内の場合）</li>
-                <li><strong>特急納品：</strong> 撮影から3日以内での納品をご希望の場合、基本価格に＋20%</li>
-            </ul>
-        </div>
-    </div>
+    <!-- 折りたたみ式 料金ガイドライン -->
+    <h2 class="section-title fade-in">Pricing / Guidelines</h2>
 
-    <!-- 追加：ギターレコーディング 料金ガイドライン -->
-    <h2 class="section-title fade-in">Guitar Recording Guidelines</h2>
-    <div class="guideline-container fade-in">
-        <div class="guideline-block">
-            <h3 class="guideline-heading">1曲フルコーラス録音</h3>
-            <ul class="guideline-list">
-                <li>フレーズ指定あり（譜面/MIDI支給）： <strong>¥10,000〜</strong></li>
-                <li>アレンジ・フレーズ考案込み： <strong>¥15,000〜</strong></li>
-            </ul>
+    <!-- 撮影依頼 -->
+    <details class="guideline-accordion fade-in">
+        <summary>撮影依頼 料金ガイドライン</summary>
+        <div class="accordion-content">
+            <div class="guideline-block">
+                <h3 class="guideline-heading">1案件目安</h3>
+                <p class="price-highlight">¥15,000〜 <span>＋ 交通費</span></p>
+                <p class="note">※拘束時間や納品枚数等によって変動</p>
+            </div>
+            
+            <div class="guideline-block">
+                <h3 class="guideline-heading">料金の算出基準（お見積もりについて）</h3>
+                <p>基本価格は、以下の計算式に基づき、総拘束時間に応じて算出いたします。</p>
+                <ul class="guideline-list">
+                    <li>基本価格 ＝ (総拘束時間 × 時間単価) ＋ 機材維持費 ＋ 交通費(実費)</li>
+                    <li>総拘束時間 ＝ 移動時間 ＋ 撮影時間 ＋ 選定・現像時間</li>
+                </ul>
+            </div>
+            
+            <div class="guideline-block">
+                <h3 class="guideline-heading">納品写真のご利用について（完全フリーライセンス）</h3>
+                <p>追加料金なしで商用利用も可能です。</p>
+                <p class="note">※可能な範囲でクレジット表記(『Photo by @アカウント名』など)にご協力いただけますと幸いです。</p>
+            </div>
+            
+            <div class="guideline-block">
+                <h3 class="guideline-heading">納品期限オプション</h3>
+                <ul class="guideline-list">
+                    <li><strong>通常納品：</strong> 撮影から1週間程度（20枚以内の場合）</li>
+                    <li><strong>特急納品：</strong> 撮影から3日以内での納品をご希望の場合、基本価格に＋20%</li>
+                </ul>
+            </div>
         </div>
+    </details>
 
-        <div class="guideline-block">
-            <h3 class="guideline-heading">部分録音・ショートプラン</h3>
-            <p class="note">※「フレーズ指定あり」の目安</p>
-            <ul class="guideline-list">
-                <li>ワンコーラス録音（TVサイズ等）： <strong>¥7,000〜</strong></li>
-                <li>一部バッキング（伴奏L/R）のみ録音： <strong>¥5,000〜</strong></li>
-                <li>ギターソロ（数十小節）のみ録音： <strong>¥3,000〜</strong></li>
-            </ul>
-        </div>
+    <!-- ギターレコーディング -->
+    <details class="guideline-accordion fade-in">
+        <summary>ギターレコーディング 料金ガイドライン</summary>
+        <div class="accordion-content">
+            <div class="guideline-block">
+                <h3 class="guideline-heading">1曲フルコーラス録音</h3>
+                <ul class="guideline-list">
+                    <li>フレーズ指定あり（譜面/MIDI支給）： <strong>¥10,000〜</strong></li>
+                    <li>アレンジ・フレーズ考案込み： <strong>¥15,000〜</strong></li>
+                </ul>
+            </div>
 
-        <div class="guideline-block">
-            <h3 class="guideline-heading">無料リテイク（修正）について</h3>
-            <ul class="guideline-list">
-                <li>納品後の無料リテイクは<strong>2回まで</strong></li>
-                <li>3回目以降の修正、または当初の依頼内容から大きく逸脱するフレーズの変更（再録音）については別途料金</li>
-            </ul>
+            <div class="guideline-block">
+                <h3 class="guideline-heading">部分録音・ショートプラン</h3>
+                <p class="note">※「フレーズ指定あり」の目安</p>
+                <ul class="guideline-list">
+                    <li>ワンコーラス録音（TVサイズ等）： <strong>¥7,000〜</strong></li>
+                    <li>一部バッキング（伴奏L/R）のみ録音： <strong>¥5,000〜</strong></li>
+                    <li>ギターソロ（数十小節）のみ録音： <strong>¥3,000〜</strong></li>
+                </ul>
+            </div>
+
+            <div class="guideline-block">
+                <h3 class="guideline-heading">無料リテイク（修正）について</h3>
+                <ul class="guideline-list">
+                    <li>納品後の無料リテイクは<strong>2回まで</strong></li>
+                    <li>3回目以降の修正、または当初の依頼内容から大きく逸脱するフレーズの変更（再録音）については別途料金</li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </details>
+
+    <p class="contact-note fade-in">
+        ※ご依頼・お見積もりのご相談は、各SNS（X / Instagram）のDMよりお気軽にご連絡ください。
+    </p>
 
     <footer class="footer fade-in">
         &copy; 2026 クリプトHida
