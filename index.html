@@ -295,10 +295,66 @@
             line-height: 1.5;
             color: #eeeeee;
         }
+
+        /* --- ガイドライン（料金表） --- */
+        .guideline-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: rgba(42, 42, 42, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 24px;
+            box-sizing: border-box;
+            margin-bottom: 40px;
+            backdrop-filter: blur(4px);
+        }
+        .guideline-block {
+            margin-bottom: 24px;
+        }
+        .guideline-block:last-child {
+            margin-bottom: 0;
+        }
+        .guideline-heading {
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            border-left: 3px solid var(--primary-btn);
+            padding-left: 8px;
+            font-weight: bold;
+        }
+        .guideline-block p {
+            font-size: 0.9rem;
+            color: #cccccc;
+            margin: 0 0 8px 0;
+            line-height: 1.6;
+        }
+        .price-highlight {
+            font-size: 1.2rem !important;
+            color: #ffffff !important;
+            font-weight: bold;
+        }
+        .price-highlight span {
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+        .guideline-list {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.9rem;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+        .guideline-list li {
+            margin-bottom: 6px;
+        }
+        .guideline-block .note {
+            font-size: 0.8rem;
+            color: #999999;
+        }
         
         /* --- フッター --- */
         .footer {
-            margin-top: 24px;
+            margin-top: 8px;
             font-size: 0.85rem;
             color: #666666;
             text-align: center;
@@ -427,6 +483,39 @@
             <div class="timeline-content">ギター演奏投稿を主目的としたYouTubeチャンネルを開設。「クリプトHida」誕生。</div>
         </li>
     </ul>
+
+    <!-- 追加：撮影依頼 料金ガイドライン -->
+    <h2 class="section-title fade-in">Shooting Guidelines</h2>
+    <div class="guideline-container fade-in">
+        <div class="guideline-block">
+            <h3 class="guideline-heading">1案件目安</h3>
+            <p class="price-highlight">¥12,000〜 <span>＋ 交通費</span></p>
+            <p class="note">※拘束時間や納品枚数等によって変動</p>
+        </div>
+        
+        <div class="guideline-block">
+            <h3 class="guideline-heading">料金の算出基準（お見積もりについて）</h3>
+            <p>基本価格は、以下の計算式に基づき、総拘束時間に応じて算出いたします。</p>
+            <ul class="guideline-list">
+                <li>基本価格 ＝ (総拘束時間 × 時間単価) ＋ 機材維持費 ＋ 交通費(実費)</li>
+                <li>総拘束時間 ＝ 移動時間 ＋ 撮影時間 ＋ 選定・現像時間</li>
+            </ul>
+        </div>
+        
+        <div class="guideline-block">
+            <h3 class="guideline-heading">納品写真のご利用について（完全フリーライセンス）</h3>
+            <p>追加料金なしで商用利用も可能です。</p>
+            <p class="note">※可能な範囲でクレジット表記(『Photo by @アカウント名』など)にご協力いただけますと幸いです。</p>
+        </div>
+        
+        <div class="guideline-block">
+            <h3 class="guideline-heading">納品期限オプション</h3>
+            <ul class="guideline-list">
+                <li><strong>通常納品：</strong> 撮影から1週間程度（20枚以内の場合）</li>
+                <li><strong>特急納品：</strong> 撮影から3日以内での納品をご希望の場合、基本価格に＋20%</li>
+            </ul>
+        </div>
+    </div>
 
     <footer class="footer fade-in">
         &copy; 2026 クリプトHida
