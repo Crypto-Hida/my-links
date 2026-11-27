@@ -483,11 +483,11 @@
         }
         .form-status {
             font-size: 0.85rem;
-            line-height: 1.5;
+            line-height: 1.6;
             text-align: center;
             margin: 4px 0 0 0;
             display: none;
-            padding: 10px 12px;
+            padding: 14px 12px;
             border-radius: 6px;
         }
         .form-status.success {
@@ -864,7 +864,13 @@
                         });
 
                         if (response.ok) {
-                            contactStatus.textContent = 'お問い合わせありがとうございます。内容を確認のうえ、通常2〜3日以内にご返信いたします。';
+                            // 入力欄と送信ボタンを非表示にして完了表示に切り替える
+                            contactForm.querySelectorAll('.form-group').forEach(el => {
+                                el.style.display = 'none';
+                            });
+                            contactSubmit.style.display = 'none';
+
+                            contactStatus.innerHTML = 'お問い合わせありがとうございます。<br>送信が完了しました。内容を確認のうえ、通常2〜3日以内にご返信いたします。';
                             contactStatus.className = 'form-status success';
                             contactForm.reset();
                         } else {
@@ -875,11 +881,12 @@
                                 contactStatus.textContent = '送信に失敗しました。時間をおいて再度お試しいただくか、SNSのDMよりご連絡ください。';
                             }
                             contactStatus.className = 'form-status error';
+                            contactSubmit.disabled = false;
+                            contactSubmit.textContent = '送信する';
                         }
                     } catch (error) {
                         contactStatus.textContent = '通信エラーが発生しました。インターネット接続を確認のうえ再度お試しください。';
                         contactStatus.className = 'form-status error';
-                    } finally {
                         contactSubmit.disabled = false;
                         contactSubmit.textContent = '送信する';
                     }
